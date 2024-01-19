@@ -6,6 +6,9 @@ import {OBJLoader} from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/OB
 import {MTLLoader} from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/MTLLoader.js';
 import {OrbitControls} from 'https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js';
 
+// adding VR Component
+import { VRButton } from './src/VRButton.js';
+
 // GLOBAL VARIABLES ------------------------
 let canvas;
 let scene;
@@ -59,6 +62,16 @@ function setupTHREE(){
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   renderer = new THREE.WebGLRenderer({canvas});
+
+  // adding VR compatibility -------------------------
+  renderer.xr.enabled = true;
+  renderer.setAnimationLoop( function () {
+
+    renderer.render( scene, camera );
+  
+  } );
+  // -------------------------------------------------
+
   renderer.setSize(canvas.width, canvas.height);
   loader = new THREE.TextureLoader();
 }
@@ -211,6 +224,9 @@ function main() {
 
    // Fog
    genFog();
+
+   // Adding VR Button 
+   document.body.appendChild( VRButton.createButton( renderer ) );
 
   requestAnimationFrame(updateScene); //used for draw and update scene
   // renderShapes();
