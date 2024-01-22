@@ -1,7 +1,7 @@
 // Phoebe Royer
 // Asgn5
 
-import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 import {OBJLoader} from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/OBJLoader.js';
 import {MTLLoader} from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/MTLLoader.js';
 import {OrbitControls} from 'https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js';
@@ -62,6 +62,8 @@ function setupTHREE(){
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   renderer = new THREE.WebGLRenderer({canvas});
+  renderer.setSize(canvas.width, canvas.height);
+  loader = new THREE.TextureLoader();
 
   // adding VR compatibility -------------------------
   renderer.xr.enabled = true;
@@ -71,9 +73,6 @@ function setupTHREE(){
   
   } );
   // -------------------------------------------------
-
-  renderer.setSize(canvas.width, canvas.height);
-  loader = new THREE.TextureLoader();
 }
 
 function genScene(){
@@ -225,11 +224,11 @@ function main() {
    // Fog
    genFog();
 
-   // Adding VR Button 
-   document.body.appendChild( VRButton.createButton( renderer ) );
-
   requestAnimationFrame(updateScene); //used for draw and update scene
   // renderShapes();
+
+  // Adding VR Button 
+  document.body.appendChild( VRButton.createButton( renderer ) );
 }
 
 function updateScene(time){
