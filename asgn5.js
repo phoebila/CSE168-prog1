@@ -1,10 +1,10 @@
 // Phoebe Royer
 // Asgn5
 
-import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
-import {OBJLoader} from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/OBJLoader.js';
-import {MTLLoader} from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/MTLLoader.js';
-import {OrbitControls} from 'https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js';
+import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+import {OBJLoader} from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/OBJLoader.js';
+import {MTLLoader} from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/MTLLoader.js';
+import {OrbitControls} from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
 
 // adding VR Component
 import { VRButton } from './src/VRButton.js';
@@ -301,6 +301,7 @@ function makeSphere(material, x = 0, y = 0, z = 0, r = 1, wS = 12, h = 12) {
 
   return sphere;
 }
+
 
 // Call Main
 main();

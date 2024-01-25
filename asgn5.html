@@ -38,7 +38,14 @@ For Grader (intended points):
 	</head>
     <body>
         <canvas id="c"></canvas>
-        <script async src="https://unpkg.com/es-module-shims@1.6.2/dist/es-module-shims.js"></script>
+        <script async src="https://unpkg.com/es-module-shims@1.8.2/dist/es-module-shims.js"></script>
         <script src="asgn5.js" type="module"></script>
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+                }
+            }
+        </script>
 	</body>
 </html>
